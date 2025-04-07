@@ -304,7 +304,7 @@ if __name__ == "__main__":
 EOF
 
 # Create the shell script in /usr/bin
-cat > /usr/bin/tv_grab_orange_es.sh << 'EOF'
+cat > /usr/bin/tv_grab_orange_es << 'EOF'
 #!/bin/sh
 #
 # tv_grab_orange: EPG Orange TV - 3 días de programación
@@ -367,7 +367,7 @@ exit 0
 EOF
 
 # Make the shell script executable
-chmod +x /usr/bin/tv_grab_orange_es.sh
+chmod +x /usr/bin/tv_grab_orange_es
 chmod +x "$USER_HOME/orange.py"
 
 # Set proper ownership for the Python script
@@ -379,5 +379,5 @@ pip install requests --break-system-packages
 
 echo "Instalación Completada"
 echo "Script de Python instalado en: $USER_HOME/orange.py"
-echo "Script bash para TVH en: /usr/bin/tv_grab_orange_es.sh"
+echo "Script bash para TVH en: /usr/bin/tv_grab_orange_es"
 echo "Reinicie TVHeadend y dirigase a Canal/EPG - Modulos de obtención de Guia y active XMLTV: EPG Orange TV"
