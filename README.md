@@ -1,5 +1,7 @@
 ### Guía de instalación de la EPG de Orange TV España para Tvheadend
+
 ![alt text](https://raw.githubusercontent.com/m08garcia/EPG-Orange-TV-TVH/master/imagenes/Screenshot_20250407_125443.png)
+
 (Los picons o iconos de canal no están incluidos en este script EPG)
 
 El Script por efecto descarga 5 días de EPG (El actual y los 4 siguiente, si quiere modificar este número en el script de python modifique:
@@ -21,6 +23,7 @@ curl -sSL https://raw.githubusercontent.com/m08garcia/EPG-Orange-TV-TVH/main/ins
 ```
 
 Luego en el panel de TVHeadend vaya a Configuración 🡪 Canal / EPG 🡪 Módulos para Obtención de Guia y habilite el que se llame: XMLTV: EPG Orange TV.
+
 ![alt text](https://raw.githubusercontent.com/m08garcia/EPG-Orange-TV-TVH/master/imagenes/Screenshot_20250407_124856.png)
 
 ## Instalación de Python (Sí no está ya instalado)
