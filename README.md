@@ -13,13 +13,12 @@ Para instalar automáticamente, ejecuta el siguiente comando:
 curl -sSL https://raw.githubusercontent.com/m08garcia/EPG-Orange-TV-TVH/main/instalar.sh | sudo bash
 ```
 
-## Instalación de Python (Sí no está ya int)
+## Instalación de Python (Sí no está ya instalado)
 
 ### En Debian/Ubuntu
 
 ```shellscript
-sudo apt update
-sudo apt install python3 python3-pip
+sudo apt update && sudo apt install python3 python3-pip
 ```
 
 ### En Fedora
@@ -40,32 +39,19 @@ Si prefieres instalar manualmente, sigue estos pasos:
 sudo pip install requests --break-system-packages
 ```
 
-
 2. **Crear el archivo Python**:
-Crea un archivo llamado `orange.py` en tu directorio home:
+Descarga el script python de obtención `orange.py` en tu directorio home:
 
 ```shellscript
-sudo wget -P ~ orange.py "https://raw.githubusercontent.com/m08garcia/EPG-Orange-TV-TVH/main/orange.py"
-```
-
-Copia y pega el contenido del script Python (el código completo del archivo `orange-epg.py`.
-
-Guarda el archivo (en nano: Ctrl+O, Enter, Ctrl+X).
-
-
-3. **Hacer ejecutable el script Python**:
-
-```shellscript
-chmod +x ~/orange.py
+sudo wget -P ~ "https://raw.githubusercontent.com/m08garcia/EPG-Orange-TV-TVH/main/orange.py"
 ```
 
 
-4. **Crear el script shell**:
+4. **Descarga el script bash para TVH**:
 
 ```shellscript
 sudo wget -P /usr/bin/ -O tv_grab_orange_es "https://raw.githubusercontent.com/m08garcia/EPG-Orange-TV-TVH/main/tv_grab_orange_es.sh"
 ```
-
 
 5. **Hacer ejecutable el script shell**:
 
