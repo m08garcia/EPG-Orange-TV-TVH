@@ -4,7 +4,7 @@
 
 (Los picons o iconos de canal no están incluidos en este script EPG)
 
-El Script por efecto descarga 5 días de EPG (El actual y los 4 siguiente, si quiere modificar este número en el script de python modifique:
+El Script por efecto descarga 5 días de EPG (El actual y los 4 siguientes), si quiere modificar este número en el script de python modifique esta línea:
 ```shellscript
 def get_epg(self, days={Número de días}):
 ```
@@ -12,6 +12,7 @@ def get_epg(self, days={Número de días}):
 ## Requisitos previos
 
 - Python 3
+- Python Requests (Auto-intalado por el script automático)
 - Permisos de administrador (sudo)
 
 ## Instalación automática
