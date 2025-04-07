@@ -17,11 +17,11 @@ echo "Descargando orange.py..."
 curl -s -o "$USER_HOME/orange.py" "https://raw.githubusercontent.com/m08garcia/EPG-Orange-TV-TVH/main/orange-epg.py"
 
 # Descargar el script bash desde GitHub
-echo "Descargando tv_grab_orange_es.sh..."
-curl -s -o "/usr/bin/tv_grab_orange_es.sh" "https://raw.githubusercontent.com/m08garcia/EPG-Orange-TV-TVH/main/tv_grab_orange_es.sh"
+echo "Descargando tv_grab_orange_es..."
+curl -s -o "/usr/bin/tv_grab_orange_es" "https://raw.githubusercontent.com/m08garcia/EPG-Orange-TV-TVH/main/tv_grab_orange_es"
 
 # Hacer los scripts ejecutables
-chmod +x /usr/bin/tv_grab_orange_es.sh
+chmod +x /usr/bin/tv_grab_orange_es
 chmod +x "$USER_HOME/orange.py"
 
 # Establecer propiedad correcta para el script Python
@@ -37,5 +37,5 @@ systemctl restart tvheadend
 
 echo "Instalación Completada"
 echo "Script de Python instalado en: $USER_HOME/orange.py"
-echo "Script bash para TVH en: /usr/bin/tv_grab_orange_es.sh"
+echo "Script bash para TVH en: /usr/bin/tv_grab_orange_es"
 echo "Diríjase a TVHeadend > Canal/EPG > Módulos de obtención de Guía y active XMLTV: EPG Orange TV"
