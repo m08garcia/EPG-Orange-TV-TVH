@@ -3,7 +3,7 @@
 # tv_grab_orange: EPG Orange TV - 3 días de programación
 #
 
-PYTHON_SCRIPT="/home/miguel/orange-epg.py"  # Ajusta la ruta si es necesario
+PYTHON_SCRIPT="~/orange-epg.py"  # Ajusta la ruta si es necesario
 
 dflag=
 vflag=
