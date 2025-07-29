@@ -26,7 +26,7 @@ CHANNEL_MAP = {
     '12057': 'XTRM',
     '11004': 'SYFY',
     '11006': 'Cosmo',
-    '11063': 'Enfamilia',
+    '11063': 'Vin TV',
     '11045': 'SELEKT',
     '11093': 'Runtime Series',
     '1032': 'FDF',
