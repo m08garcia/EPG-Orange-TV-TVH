@@ -8,6 +8,7 @@ import ssl
 import sys
 import gzip
 import io
+import re
 
 CHANNEL_MAP = {
     '1010': 'La 1 HD',
@@ -189,7 +190,8 @@ class OrangeEPG:
         self.session = requests.Session()
         self.session.mount('https://', TLSAdapter())
         self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
+            'Referer': 'https://orangetv.orange.es/epg',
             'Accept': 'application/json'
         }
 
@@ -223,12 +225,10 @@ class OrangeEPG:
         tv.set('generator-info-name', 'Orange TV EPG')
         tv.set('generator-info-url', 'https://orangetv.orange.es')
         
-        # Añadir canales
         for chan_id, name in CHANNEL_MAP.items():
             channel = SubElement(tv, 'channel', {'id': chan_id})
             SubElement(channel, 'display-name').text = name
             
-        # Añadir programas
         epg_data = self.get_epg()
         for chan_id, programs in epg_data.items():
             for program in programs:
@@ -243,9 +243,21 @@ class OrangeEPG:
             'channel': chan_id
         })
         
-        SubElement(programme, 'title').text = escape(program.get('name', 'Sin título'))
+        original_title = program.get('name', 'Sin título')
+        season = episode = None
+
+        match = re.search(r' - T(\d+), E0?(\d+)', original_title)
+        if match:
+            season, episode = map(int, match.groups())
+
+        modified_title = re.sub(r'( - T\d+), E0?(\d+)', r'\1 E\2', original_title)
+        
+        SubElement(programme, 'title').text = escape(modified_title)
         SubElement(programme, 'desc').text = escape(program.get('description', ''))
         
+        if season is not None and episode is not None:
+            SubElement(programme, 'episode-num', {'system': 'onscreen'}).text = f"S{season} E{episode}"
+
         if 'attachments' in program:
             for attachment in program['attachments']:
                 if attachment.get('name') == 'COVER':
@@ -266,7 +278,7 @@ def main():
         print("EPG Orange TV")
         return
     if '-v' in sys.argv or '--version' in sys.argv:
-        print("6.0")
+        print("6.1")
         return
     if '-c' in sys.argv or '--capabilities' in sys.argv:
         print("baseline")
